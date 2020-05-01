@@ -1,0 +1,6 @@
+<%= simple_form_for @recipe do |f| %>
+<%= f.input :name, input_html: { class: 'input' }, wrapper: false, label_html: { class: 'label' } %>
+<%= f.input :ingredients, input_html: { class: 'textarea' }, wrapper: false, label_html: { class: 'label' } %>
+<%= f.input :instructions, input_html: { class: 'textarea' }, wrapper: false, label_html: { class: 'label' } %>
+<%= f.button :submit, class: "button is-primary" %>
+<% end %>

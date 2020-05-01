@@ -1,3 +1,8 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :categories, except: [:edit, :update] do
+    resources :recipes, except: [:new] do
+    end
+  end
+  get "recipes/new", to: "recipes#new"
+  root "categories#index"
 end
