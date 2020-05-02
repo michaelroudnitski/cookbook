@@ -1,3 +1,29 @@
 // Place all the styles related to the Categories controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+$green: #00d1b2;
+$circleSize: 12px;
+
+.icon-radio {
+    display: none;
+    ~ label {
+        &:hover {
+            cursor: pointer;
+        }
+        .circle {
+            transition: all 0.2s linear;
+            width: $circleSize;
+            height: $circleSize;
+            border-radius: 100%;
+            background: transparent;
+            margin-left: auto;
+            border: solid #ccc 1px;
+            // opacity: 0;
+        }
+    }
+    &:checked ~ label > .box > .circle {
+        // opacity: 1;
+        background: $green;
+    }
+}

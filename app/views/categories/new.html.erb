@@ -1,10 +1,29 @@
 <section class="section">
     <h1 class="title">New Category</h1>
-</section>
-<section class="section">
     <%= simple_form_for @category do |f| %>
+    <% if @category.errors.any? %>
+    <% @category.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+    <% end %>
     <div class="field">
         <%= f.input :name, input_html: { class: 'input' }, wrapper: false, label_html: { class: 'label' } %>
+    </div>
+    <div class="field">
+        <label class="label">Icon</label>
+        <div class="level">
+            <% @images.each do |image| %>
+            <div class="level-item">
+                <%= f.radio_button :icon, img_file_name(image), class: "icon-radio" %>
+                <%= f.label :icon, value: img_file_name(image) do %>
+                <div class="box">
+                    <div class="circle"></div>
+                    <%= image_tag "food/#{img_file_name(image)}" %>
+                </div>
+                <% end %>
+            </div>
+            <% end %>
+        </div>
     </div>
     <%= f.button :submit, class: "button is-primary" %>
     <% end %>

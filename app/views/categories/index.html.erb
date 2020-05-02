@@ -1,21 +1,18 @@
 <section class="section">
-    <h1 class="title is-1 has-text-centered">
-        <strong>Pantry</strong> Book
-    </h1>
+    <h1 class="title is-1 has-text-centered">Pantry Book</h1>
 </section>
+<hr />
 <section class="section">
     <div class="columns is-multiline">
         <% @categories.each do |cat| %>
         <div class="column is-one-quarter">
-            <div class="box">
-                <p class="subtitle"><%= cat.name %></p>
-            </div>
+            <%= render partial: "categorybox", locals: {cat: cat} %>
         </div>
         <% end %>
         <div class="column is-one-quarter">
             <%= link_to new_category_path do %>
             <div class="box">
-                <p class="subtitle">+ New Category</p>
+                <p class="subtitle has-text-centered">+ New Category</p>
             </div>
             <% end %>
         </div>

@@ -5,10 +5,12 @@ class CategoriesController < ApplicationController
 
   def new
     @category = Category.new
+    @images = Dir.glob("#{Rails.root}/app/assets/images/food/*.png")
   end
 
   def create
     @category = Category.new(category_params)
+    @images = Dir.glob("#{Rails.root}/app/assets/images/food/*.png")
 
     if @category.save
       redirect_to root_path
@@ -20,6 +22,6 @@ class CategoriesController < ApplicationController
   private
 
   def category_params
-    params.require(:category).permit(:name)
+    params.require(:category).permit(:name, :icon)
   end
 end
