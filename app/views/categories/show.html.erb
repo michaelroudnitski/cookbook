@@ -1,0 +1,12 @@
+<h1 class="title is-1 has-text-centered">
+    <%= @category.name %>
+    <%= image_tag "food/#{@category.icon}" %>
+</h1>
+<div class="level">
+    <div class="level-left"></div>
+    <div class="level-right">
+        <%= link_to @category, method: :delete, data: {confirm: "Delete category?"}, class: "level-item has-text-danger" do %>
+        <%= fa_icon "trash 2x" %>
+        <% end %>
+    </div>
+</div>

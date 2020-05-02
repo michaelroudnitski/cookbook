@@ -1,6 +1,21 @@
 <h1 class="title is-1 has-text-centered">Pantry Book</h1>
-<%= link_to "New Category", new_category_path, class: "button is-primary is-light" %>
+
+<div id="search-bar" class="field has-addons">
+    <div class="control is-expanded">
+        <input class="input" type="text" placeholder="Find a recipe">
+    </div>
+    <div class="control">
+        <a class="button">
+            Search
+        </a>
+    </div>
+</div>
+
 <hr />
+
+<div class="level">
+    <%= link_to "+ New Category", new_category_path, class: "button is-primary is-light" %>
+</div>
 <div class="columns is-multiline">
     <% @categories.each do |cat| %>
     <div class="column is-one-quarter">

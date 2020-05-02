@@ -19,6 +19,16 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def show
+    @category = Category.find(params[:id])
+  end
+
+  def destroy
+    @category = Category.find(params[:id])
+    @category.destroy
+    redirect_to root_path, :success => "Removed category: #{@category.name}"
+  end
+
   private
 
   def category_params

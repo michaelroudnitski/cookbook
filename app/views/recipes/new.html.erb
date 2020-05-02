@@ -1,6 +1,34 @@
-<%= simple_form_for @recipe do |f| %>
-<%= f.input :name, input_html: { class: 'input' }, wrapper: false, label_html: { class: 'label' } %>
-<%= f.input :ingredients, input_html: { class: 'textarea' }, wrapper: false, label_html: { class: 'label' } %>
-<%= f.input :instructions, input_html: { class: 'textarea' }, wrapper: false, label_html: { class: 'label' } %>
-<%= f.button :submit, class: "button is-primary" %>
+<h1 class="title is-1 has-text-centered">New Recipe</h1>
+
+<%= simple_form_for @recipe do |f|%>
+
+<div class="field">
+    <div class="label">
+        Category
+    </div>
+    <div class="select">
+        <div class="control">
+            <%= f.association :category, wrapper: false, label:false, date_separator: '</div><div class="select">', include_blank: false %>
+        </div>
+    </div>
+</div>
+
+<div class="field">
+    <%= f.input :name, input_html: { class: 'input' }, wrapper: false, label_html: { class: 'label' } %>
+</div>
+
+<div class="field">
+    <%= f.input :ingredients, input_html: { class: 'textarea' }, wrapper: false, label_html: { class: 'label' } %>
+</div>
+
+<div class="field">
+    <%= f.input :instructions, input_html: { class: 'textarea' }, wrapper: false, label_html: { class: 'label' } %>
+</div>
+
+
+<div class="field">
+
+    <%= f.button :submit, class: "button is-primary" %>
+</div>
+
 <% end %>
