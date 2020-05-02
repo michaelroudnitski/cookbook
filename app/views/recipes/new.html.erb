@@ -18,17 +18,22 @@
 </div>
 
 <div class="field">
-    <%= f.input :ingredients, input_html: { class: 'textarea' }, wrapper: false, label_html: { class: 'label' } %>
+    <%= f.input :time_estimate, as: :integer, wrapper: false, input_html: { class: 'input' }, label_html: { class: 'label' }, label: "Estimated Time (minutes)" %>
 </div>
 
 <div class="field">
-    <%= f.input :instructions, input_html: { class: 'textarea' }, wrapper: false, label_html: { class: 'label' } %>
+    <%= f.input :ingredients, as: :ckeditor, wrapper: false, label_html: { class: 'label' } %>
+</div>
+
+<div class="field">
+    <%= f.input :instructions, as: :ckeditor, wrapper: false, label_html: { class: 'label' } %>
 </div>
 
 
-<div class="field">
-
+<div class="field is-grouped-right">
     <%= f.button :submit, class: "button is-primary" %>
 </div>
 
 <% end %>
+
+<%= javascript_include_tag Ckeditor.cdn_url %>
