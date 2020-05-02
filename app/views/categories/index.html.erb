@@ -1,20 +1,10 @@
-<section class="section">
-    <h1 class="title is-1 has-text-centered">Pantry Book</h1>
-</section>
+<h1 class="title is-1 has-text-centered">Pantry Book</h1>
+<%= link_to "New Category", new_category_path, class: "button is-primary is-light" %>
 <hr />
-<section class="section">
-    <div class="columns is-multiline">
-        <% @categories.each do |cat| %>
-        <div class="column is-one-quarter">
-            <%= render partial: "categorybox", locals: {cat: cat} %>
-        </div>
-        <% end %>
-        <div class="column is-one-quarter">
-            <%= link_to new_category_path do %>
-            <div class="box">
-                <p class="subtitle has-text-centered">+ New Category</p>
-            </div>
-            <% end %>
-        </div>
+<div class="columns is-multiline">
+    <% @categories.each do |cat| %>
+    <div class="column is-one-quarter">
+        <%= render partial: "categorybox", locals: {cat: cat} %>
     </div>
-</section>
+    <% end %>
+</div>

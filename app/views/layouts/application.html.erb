@@ -26,9 +26,24 @@
       </div>
     </div>
   </nav>
+  <% flash.each do |name, msg| %>
+  <div class="notification is-<%= name %>"><button class="delete"></button><%= msg %></div>
+  <% end %>
   <div class="container">
     <%= yield %>
   </div>
 </body>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
+      $notification = $delete.parentNode;
+
+      $delete.addEventListener('click', () => {
+        $notification.parentNode.removeChild($notification);
+      });
+    });
+  });
+</script>
 
 </html>

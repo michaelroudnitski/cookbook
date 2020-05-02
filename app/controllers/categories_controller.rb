@@ -13,7 +13,7 @@ class CategoriesController < ApplicationController
     @images = Dir.glob("#{Rails.root}/app/assets/images/food/*.png")
 
     if @category.save
-      redirect_to root_path
+      redirect_to root_path, :success => "Created new category: #{@category.name}"
     else
       render :new
     end

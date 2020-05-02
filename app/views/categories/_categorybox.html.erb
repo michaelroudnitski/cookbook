@@ -1,5 +1,10 @@
 <%= link_to cat do %>
 <div class="box">
-    <p class="subtitle has-text-centered"><%= cat.name %></p>
+    <p class="subtitle has-text-centered">
+        <%= image_tag "food/#{cat.icon}" %>
+    </p>
+    <p class="has-text-centered has-text-weight-bold">
+        <%= cat.name %>
+    </p>
 </div>
 <% end %>
