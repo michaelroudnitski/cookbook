@@ -11,14 +11,14 @@
     <% end %>
     <div class="card-content">
         <div class="content">
-            <a href="#">#css</a> <a href="#">#responsive</a>
+            <a href="#">#fancy</a> <a href="#">#quick</a>
             <%= truncate(raw(recipe.ingredients), length: 50) %>
         </div>
     </div>
     <footer class="card-footer">
         <p class="card-footer-item"> <%= fa_icon "clock-o" %><%= recipe.time_estimate %>m </p>
         <%= link_to 'Edit', edit_recipe_path(recipe), class: 'card-footer-item' %>
-        <%= link_to recipe_path(recipe), method: :delete, data: {confirm: "Delete recipe: #{recipe.name}?"}, class: 'card-footer-item has-text-danger' do %>
+        <%= link_to recipe, method: :delete, data: {confirm: "Delete recipe: #{recipe.name}?"}, class: 'card-footer-item has-text-danger' do %>
         <%= fa_icon 'trash' %>
         <% end %>
     </footer>

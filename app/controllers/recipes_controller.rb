@@ -19,6 +19,13 @@ class RecipesController < ApplicationController
     @category = Category.find(@recipe.category_id)
   end
 
+  def destroy
+    @recipe = Recipe.find(params[:id])
+    @category = Category.find(@recipe.category_id)
+    @recipe.destroy
+    redirect_to @category, :success => "Removed recipe: #{@recipe.name}"
+  end
+
   private
 
   def recipe_params
