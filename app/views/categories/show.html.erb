@@ -2,41 +2,17 @@
     <%= @category.name %>
     <%= image_tag "food/#{@category.icon}" %>
 </h1>
-<div class="level">
-    <div class="level-left"></div>
-    <div class="level-right">
-        <%= link_to @category, method: :delete, data: {confirm: "Delete category?"}, class: "level-item has-text-danger" do %>
-        <%= fa_icon "trash 2x" %>
-        <% end %>
-    </div>
-</div>
+
+<hr />
 
 <section>
     <div id="recipe-cards">
         <% @recipes.each do |r| %>
-        <div class="card">
-            <%= link_to recipe_path(r) do %>
-            <header class="card-header">
-                <p class="card-header-title">
-                    <%= r.name %>
-                </p>
-                <p class="card-header-icon">
-                    <%= fa_icon "angle-right" %>
-                </p>
-            </header>
-            <% end %>
-            <div class="card-content">
-                <div class="content">
-                    <a href="#">#css</a> <a href="#">#responsive</a>
-                    <%= truncate(raw(r.ingredients), length: 50) %>
-                </div>
-            </div>
-            <footer class="card-footer">
-                <p class="card-footer-item"> <%= fa_icon "clock-o" %><%= r.time_estimate %>m </p>
-                <a href="#" class="card-footer-item">Edit</a>
-                <a href="#" class="card-footer-item">Delete</a>
-            </footer>
-        </div>
+        <%= render partial: "recipebox", locals: {recipe: r} %>
         <% end %>
     </div>
 </section>
+
+<%= link_to @category, method: :delete, data: {confirm: "Delete category for good?"}, class: "button is-danger" do %>
+Remove Category
+<% end %>

@@ -1,0 +1,23 @@
+<div class="card">
+    <%= link_to recipe_path(recipe) do %>
+    <header class="card-header">
+        <p class="card-header-title">
+            <%= recipe.name %>
+        </p>
+        <p class="card-header-icon">
+            <%= fa_icon "angle-right" %>
+        </p>
+    </header>
+    <% end %>
+    <div class="card-content">
+        <div class="content">
+            <a href="#">#css</a> <a href="#">#responsive</a>
+            <%= truncate(raw(recipe.ingredients), length: 50) %>
+        </div>
+    </div>
+    <footer class="card-footer">
+        <p class="card-footer-item"> <%= fa_icon "clock-o" %><%= recipe.time_estimate %>m </p>
+        <a href="#" class="card-footer-item">Edit</a>
+        <a href="#" class="card-footer-item">Delete</a>
+    </footer>
+</div>

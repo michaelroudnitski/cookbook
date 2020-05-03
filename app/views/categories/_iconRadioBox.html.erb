@@ -1,0 +1,9 @@
+<div class="level-item">
+    <%= f.radio_button :icon, img_file_name(image), class: "icon-radio" %>
+    <%= f.label :icon, value: img_file_name(image) do %>
+    <div class="box">
+        <div class="circle"></div>
+        <%= image_tag "food/#{img_file_name(image)}" %>
+    </div>
+    <% end %>
+</div>
