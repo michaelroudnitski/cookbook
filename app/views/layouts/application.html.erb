@@ -29,10 +29,18 @@
   <% flash.each do |name, msg| %>
   <div class="notification is-<%= name %>"><button class="delete"></button><%= msg %></div>
   <% end %>
-  <div class="container">
+  <div class="container section">
     <%= yield %>
   </div>
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        <strong>PantryBook</strong> by <a href="https://mroudnitski.com">Michael Roudnitski</a>
+      </p>
+    </div>
+  </footer>
 </body>
+
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {

@@ -33,3 +33,13 @@ $circleSize: 12px;
     margin-left: auto;
     margin-right: auto;
 }
+
+#recipe-cards {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(250px,1fr));
+	grid-gap: 1em;
+}
+
+.card{
+    height: max-content;
+}

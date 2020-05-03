@@ -21,6 +21,7 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find(params[:id])
+    @recipes = Recipe.where(category_id: params[:id])
   end
 
   def destroy
