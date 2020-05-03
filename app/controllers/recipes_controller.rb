@@ -19,6 +19,15 @@ class RecipesController < ApplicationController
     end
   end
 
+  def update
+    @recipe = Recipe.find(params[:id])
+    if @recipe.update_attributes(recipe_params)
+      redirect_to @recipe, :success => "#{@recipe.name} recipe updated"
+    else
+      render "edit"
+    end
+  end
+
   def edit
     @recipe = Recipe.find(params[:id])
     @category = Category.find(@recipe.category_id)
