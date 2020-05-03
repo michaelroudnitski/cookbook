@@ -1,4 +1,9 @@
 class RecipesController < ApplicationController
+  def show
+    @recipe = Recipe.find(params[:id])
+    @category = Category.find(@recipe.category_id)
+  end
+
   def new
     @recipe = Recipe.new
     @recipe.build_category

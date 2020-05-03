@@ -8,7 +8,7 @@
 <section>
     <div id="recipe-cards">
         <% @recipes.each do |r| %>
-        <%= render partial: "recipebox", locals: {recipe: r} %>
+        <%= render partial: "recipes/recipebox", locals: {recipe: r} %>
         <% end %>
     </div>
 </section>
